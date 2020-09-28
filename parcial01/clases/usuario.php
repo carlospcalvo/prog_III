@@ -65,14 +65,24 @@ class Usuario extends Files{
 
     public static function checkAdminEmail(string $jwt, $key, array $users){
         $flag = false;
-
         if(!empty($jwt) && preg_match_all("/\./",$jwt) == 2){
             $tks = explode('.', $jwt);       
             list($headb64, $bodyb64, $cryptob64) = $tks;
             $user_verify = \Firebase\JWT\JWT::jsonDecode(Firebase\JWT\JWT::urlsafeB64Decode($bodyb64));
-            $user_verify = new Usuario($user_verify->email, base64_decode($user_verify->clave));
-            
-            if($user_verify->user_type == 'admin'){
+            $new_user = new Usuario($user_verify->email, $user_verify->user_type, $user_verify->password);
+
+
+            var_dump($new_user);
+            if($new_user->usuarioExists($users)){
+                foreach ($users as $value) {
+                    if($new_user->email == $value->email){
+                        $new_user->user_type = $value->user_type;
+                        var_dump($new_user);
+                    }
+                }
+            }
+
+            if($new_user->user_type === 'admin'){
                 $flag = true;
             }
         }    

@@ -5,21 +5,19 @@ require_once __DIR__ . '\vendor\autoload.php';
 require_once __DIR__.'\clases\Files.php';
 require_once __DIR__.'\clases\usuario.php';
 require_once __DIR__.'\clases\ingreso.php';
-
+require_once __DIR__.'\clases\Precio.php';
 
 
 use Firebase\JWT\JWT;
 
 
-$usuarios = Files::readJson("usuarios.json") ?? array();
-$materias = Files::readJson("materias.json") ?? array();
-$precioes = Files::readJson("precioes.json") ?? array();
-$asignaciones = Files::readJson("materias-precioes.json") ?? array();
+$usuarios = Files::readJson("usuarios.json");
+$precios = Files::readJson("precios.json");
 $key = 'primerparcial';
 
 $method = $_SERVER['REQUEST_METHOD'];
 $path = $_SERVER['PATH_INFO'] ?? 'no_path';
-$token = $_GET['token'] ?? '';
+
 
 switch ($path) {
     case '/registro':        
@@ -60,15 +58,13 @@ switch ($path) {
                 );
                 
                 $usuarios = Files::readJson('usuarios.json');
-
+                var_dump($user->login($usuarios));
                 if($user->login($usuarios)){
                     echo 'Login exitoso';
                     $jwt = JWT::encode($user, $key);
                     $login = new Login($user, $jwt);
-                    echo "<br> Email: <br>";
-                    var_dump($login->user->email);
                     echo "<br> JWT: <br>";
-                    var_dump($login->jwt);
+                    echo "$jwt";
                 } else {
                     echo 'Error al conectarse.';
                 }
@@ -84,12 +80,14 @@ switch ($path) {
     break;
     case '/precio':        
         if ($method == 'POST') {
-            if(Login::verifyToken($token, $key, $usuarios) && Usuario::checkAdminEmail($token, $key, $usuarios)){
+            //VER POR QUE NO ME RECONOCE EL TOKEN
+            if(Login::verifyToken($_GET['token'], $key, $usuarios) && Usuario::checkAdminEmail($_GET['token'], $key, $usuarios)){
                 $precio = new Precio(
-                    $_POST['precio_hora'] ?? '', 
-                    $_POST['precio_estadia'] ?? '',
-                    $_POST['precio_mensual'] ?? '',
+                    $_POST['precio_hora'] ?? 0, 
+                    $_POST['precio_estadia'] ?? 0,
+                    $_POST['precio_mensual'] ?? 0,
                 );
+
 
                 array_push($precios, $precio);
                 if($precio->guardarPrecio('precios.json', $precios)){

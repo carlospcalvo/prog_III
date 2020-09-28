@@ -2,6 +2,11 @@
     {
         "email": "admin@mail.com",
         "user_type": "admin",
-        "password": "$2y$10$gLB5mg9FGPrgM1e5MEgCxe7E3fM59sTDOQ2kkvrMdIVLVqkbm\/5.S"
+        "password": "$2y$10$ofdXb8uyG.QHACkJ2QWmJ.P2gAhYkq5gIgxUidGKsE0ytwEaVkL.W"
+    },
+    {
+        "email": "user@mail.com",
+        "user_type": "user",
+        "password": "$2y$10$xKrcV2rLW3lMNpr\/17eeWePH.z3E.MVNY6Ryh2CrSJMZIJ43iVe.S"
     }
 ]

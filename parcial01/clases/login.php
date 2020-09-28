@@ -40,12 +40,13 @@ class Login{
     
         //itera el listado de usuarios
         foreach ($usuarios as $value) {
-            //busca el usuario
+            //busca el usuario            
             if($user->Equals($user, $value)){
                 if(password_verify(base64_decode($user->password), $value->password)){
                     $flag = true;
                     break;
                 }     
+
             }
         }
         return $flag;
@@ -58,8 +59,8 @@ class Login{
             $tks = explode('.', $jwt);       
             list($headb64, $bodyb64, $cryptob64) = $tks;
             $user_verify = \Firebase\JWT\JWT::jsonDecode(Firebase\JWT\JWT::urlsafeB64Decode($bodyb64));
-            $user_verify = new Usuario($user_verify->email, base64_decode($user_verify->clave));
-            
+            $user_verify = new Usuario($user_verify->email, $user_verify->user_type, $user_verify->password);
+
             if(Login::userLogin($user_verify, $users)){
                 $flag = true;
             }
