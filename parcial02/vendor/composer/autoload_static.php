@@ -258,14 +258,19 @@ class ComposerStaticInitbb15f8073c193a56c38f22b617715fdf
     );
 
     public static $classMap = array (
+        'App\\Controllers\\InscripcionController' => __DIR__ . '/../..' . '/src/controller/inscripcionController.php',
         'App\\Controllers\\LoginController' => __DIR__ . '/../..' . '/src/controller/loginController.php',
         'App\\Controllers\\MateriaController' => __DIR__ . '/../..' . '/src/controller/materiaController.php',
-        'App\\Controllers\\UsuarioController' => __DIR__ . '/../..' . '/src/controller/usuarioController.php',
-        'App\\Middlewares\\AdminMiddleware' => __DIR__ . '/../..' . '/src/middleware/AdminMiddleware.php',
+        'App\\Controllers\\NotaController' => __DIR__ . '/../..' . '/src/controller/notaController.php',
+        'App\\Controllers\\UserController' => __DIR__ . '/../..' . '/src/controller/userController.php',
         'App\\Middlewares\\AuthMiddleware' => __DIR__ . '/../..' . '/src/middleware/AuthMiddleware.php',
         'App\\Middlewares\\JsonMiddleware' => __DIR__ . '/../..' . '/src/middleware/JsonMiddleware.php',
+        'App\\Models\\Alumno' => __DIR__ . '/../..' . '/src/models/Alumno.php',
+        'App\\Models\\Inscripcion' => __DIR__ . '/../..' . '/src/models/Inscripcion.php',
         'App\\Models\\Materia' => __DIR__ . '/../..' . '/src/models/Materia.php',
-        'App\\Models\\Usuario' => __DIR__ . '/../..' . '/src/models/Usuario.php',
+        'App\\Models\\Nota' => __DIR__ . '/../..' . '/src/models/Nota.php',
+        'App\\Models\\Profesor' => __DIR__ . '/../..' . '/src/models/Profesor.php',
+        'App\\Models\\User' => __DIR__ . '/../..' . '/src/models/User.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonConverterInterface' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonConverterInterface.php',

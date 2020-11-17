@@ -14,11 +14,11 @@ class Database {
         $capsule->addConnection([
             'driver' => 'mysql',
             'host' => 'localhost',
-            'database' => 'usuarios_test',
+            'database' => 'parcial02',
             'username' => 'root',
             'password' => '',
-            'charset' => 'utf8mb4', //utf8
-            'collation' => 'utf8mb4_spanish2_ci', //utf8_unicode_ci
+            'charset' => 'utf8', //utf8
+            'collation' => 'utf8_spanish2_ci', //utf8_unicode_ci
             'prefix' => '',
         ]);
 

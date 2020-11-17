@@ -4,15 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Usuario extends Model {
+class Inscripcion extends Model{
 
     protected $primaryKey = 'id';
-    public $password;
-    public $email;
-    public $user_type;
+    public $id_alumno;
+    public $id_materia;
     const CREATED_AT = 'creation_date';
     const UPDATED_AT = 'last_update';
     protected $guarded = [];
+    protected $table = 'inscripciones';
 
     public function __get($name)
     {
@@ -23,5 +23,6 @@ class Usuario extends Model {
     {
         $this->$name = $value;
     }
-
 }
+
+?>

@@ -4,13 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Alumno extends Model{
+class Profesor extends Model{
 
     protected $primaryKey = 'id';
     public $nombre;
     public $apellido;
-    public $email;
-    public $foto;
     const CREATED_AT = 'creation_date';
     const UPDATED_AT = 'last_update';
     protected $guarded = [];

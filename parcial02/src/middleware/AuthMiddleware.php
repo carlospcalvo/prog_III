@@ -2,15 +2,13 @@
 
 namespace App\Middlewares;
 
-use App\Controllers\UsuarioController;
-use App\Models\Usuario;
+use App\Controllers\UserController;
+use App\Models\User;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Slim\Psr7\Response;
 use PsrJwt\Factory\Jwt;
-use Controllers\UserControllers;
 use ReallySimpleJWT\Token;
-
 
 class AuthMiddleware
 {
@@ -39,7 +37,7 @@ class AuthMiddleware
         if(!empty($token)){
             $valido = Token::validate($token, $jwt->key);
             $payload = Token::getPayload($token, $jwt->key);
-            $allowed = in_array($payload['user_type'], $this->roles);
+            $allowed = in_array($payload['tipo'], $this->roles);
         }
 
         if (!$valido || !$allowed) {

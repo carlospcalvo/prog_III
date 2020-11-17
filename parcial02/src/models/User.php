@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Inscripcion extends Model{
+class User extends Model {
 
     protected $primaryKey = 'id';
-    public $materia;
-    public $alumno;
+    public $email;
+    public $nombre;
+    public $clave;
+    public $tipo;
     const CREATED_AT = 'creation_date';
     const UPDATED_AT = 'last_update';
     protected $guarded = [];
@@ -22,6 +24,5 @@ class Inscripcion extends Model{
     {
         $this->$name = $value;
     }
-}
 
-?>
+}

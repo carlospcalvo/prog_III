@@ -6,14 +6,19 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controllers\\InscripcionController' => $baseDir . '/src/controller/inscripcionController.php',
     'App\\Controllers\\LoginController' => $baseDir . '/src/controller/loginController.php',
     'App\\Controllers\\MateriaController' => $baseDir . '/src/controller/materiaController.php',
-    'App\\Controllers\\UsuarioController' => $baseDir . '/src/controller/usuarioController.php',
-    'App\\Middlewares\\AdminMiddleware' => $baseDir . '/src/middleware/AdminMiddleware.php',
+    'App\\Controllers\\NotaController' => $baseDir . '/src/controller/notaController.php',
+    'App\\Controllers\\UserController' => $baseDir . '/src/controller/userController.php',
     'App\\Middlewares\\AuthMiddleware' => $baseDir . '/src/middleware/AuthMiddleware.php',
     'App\\Middlewares\\JsonMiddleware' => $baseDir . '/src/middleware/JsonMiddleware.php',
+    'App\\Models\\Alumno' => $baseDir . '/src/models/Alumno.php',
+    'App\\Models\\Inscripcion' => $baseDir . '/src/models/Inscripcion.php',
     'App\\Models\\Materia' => $baseDir . '/src/models/Materia.php',
-    'App\\Models\\Usuario' => $baseDir . '/src/models/Usuario.php',
+    'App\\Models\\Nota' => $baseDir . '/src/models/Nota.php',
+    'App\\Models\\Profesor' => $baseDir . '/src/models/Profesor.php',
+    'App\\Models\\User' => $baseDir . '/src/models/User.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonConverterInterface' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonConverterInterface.php',
